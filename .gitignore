@@ -1,0 +1,30 @@
+# Keil build outputs
+*.axf
+*.bin
+*.hex
+*.o
+*.crf
+*.d
+*.dep
+*.map
+*.lst
+*.lib
+*.htm
+*.build_log.htm
+
+# Keil user files
+*.uvguix.*
+*.uvgui.*
+*.bak
+
+# Editor folders
+.vscode/
+.eide/
+.agents/
+skills-lock.json
+
+# Build output folders
+Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F407VET6/
+Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F40_41xxx/
+Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F412xG/
+Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F413_423xx/
