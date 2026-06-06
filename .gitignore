@@ -24,7 +24,7 @@
 skills-lock.json
 
 # Build output folders
-Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F407VET6/
-Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F40_41xxx/
-Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F412xG/
-Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F413_423xx/
+firmware/Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F407VET6/
+firmware/Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F40_41xxx/
+firmware/Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F412xG/
+firmware/Project/STM32F4xx_StdPeriph_Templates/MDK-ARM/STM32F413_423xx/

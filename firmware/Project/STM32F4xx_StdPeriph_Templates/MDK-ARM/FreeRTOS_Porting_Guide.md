@@ -3,7 +3,7 @@
 本文档对应当前工程：
 
 ```text
-D:\rainWork\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM\Project.uvprojx
+D:\Rainwork\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM\Project.uvprojx
 ```
 
 目标平台：
@@ -21,7 +21,7 @@ RTOS: FreeRTOS Kernel V11.3.0
 FreeRTOS 内核文件放在工程根目录：
 
 ```text
-D:\rainWork\Middlewares\FreeRTOS\Source
+D:\Rainwork\Middlewares\FreeRTOS\Source
 ```
 
 当前精简移植只加入了必要文件：
@@ -242,7 +242,7 @@ static void HeartbeatTask(void *argument)
 使用 Keil 命令行验证：
 
 ```text
-D:\l\UV4\UV4.exe -b D:\rainWork\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM\Project.uvprojx -t STM32F407VET6 -o D:\rainWork\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM\build_freertos.log
+D:\l\UV4\UV4.exe -b D:\Rainwork\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM\Project.uvprojx -t STM32F407VET6 -o D:\Rainwork\Project\STM32F4xx_StdPeriph_Templates\MDK-ARM\build_freertos.log
 ```
 
 当前验证结果：

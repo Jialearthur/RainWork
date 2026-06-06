@@ -72,10 +72,10 @@ static void LedTask(void *argument)
   for (;;)
   {
     My_Led_Open();
-    vTaskDelay(pdMS_TO_TICKS(500));
+    vTaskDelay(pdMS_TO_TICKS(300));
 
     My_Led_Close();
-    vTaskDelay(pdMS_TO_TICKS(500));
+    vTaskDelay(pdMS_TO_TICKS(300));
   }
 }
 
