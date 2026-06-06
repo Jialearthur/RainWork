@@ -340,7 +340,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F40_41xxx</Define>
               <Undefine></Undefine>
-              <IncludePath>../;../../../Libraries/CMSIS/Include;../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include;../../../Libraries/STM32F4xx_StdPeriph_Driver/inc;../../../Middlewares/FreeRTOS/Source/include;../../../Middlewares/FreeRTOS/Source/portable/RVDS/ARM_CM4F;..\Drive</IncludePath>
+              <IncludePath>../;../../../Libraries/CMSIS/Include;../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include;../../../Libraries/STM32F4xx_StdPeriph_Driver/inc;../../../Middlewares/FreeRTOS/Source/include;../../../Middlewares/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../../../Core;../../../BSP</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -395,12 +395,12 @@
             <File>
               <FileName>stm32f4xx_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../stm32f4xx_it.c</FilePath>
+              <FilePath>../../../Core/stm32f4xx_it.c</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../main.c</FilePath>
+              <FilePath>../../../Core/main.c</FilePath>
             </File>
             <File>
               <FileName>freertos_hooks.c</FileName>
@@ -427,10 +427,30 @@
               <FileType>1</FileType>
               <FilePath>../../../Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f4xx_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../../Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../../Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../../Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../../Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>/MDK-ARM</GroupName>
+          <GroupName>MDK-ARM</GroupName>
           <Files>
             <File>
               <FileName>startup_stm32f40_41xxx.s</FileName>
@@ -470,17 +490,47 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Drive</GroupName>
+          <GroupName>BSP</GroupName>
           <Files>
             <File>
               <FileName>My_Led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Drive\My_Led.c</FilePath>
+              <FilePath>../../../BSP/My_Led.c</FilePath>
             </File>
             <File>
               <FileName>My_Led.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Drive\My_Led.h</FilePath>
+              <FilePath>../../../BSP/My_Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>My_USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../../BSP/My_USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../../../BSP/My_USART.h</FilePath>
+            </File>
+            <File>
+              <FileName>My_ADC_DMA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../../BSP/My_ADC_DMA.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_ADC_DMA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../../../BSP/My_ADC_DMA.h</FilePath>
+            </File>
+            <File>
+              <FileName>My_Button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../../BSP/My_Button.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_Button.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>../../../BSP/My_Button.h</FilePath>
             </File>
           </Files>
         </Group>

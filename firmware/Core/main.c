@@ -20,19 +20,17 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "FreeRTOS.h"
-#include "task.h"
+#include <stdio.h>
+#include "My_ADC_DMA.h"
 #include "My_Led.h"
+#include "My_USART.h"
 #include "stm32f4xx.h"
 
 /** @addtogroup Template_Project
  * @{
  */
 
-/* Private function prototypes -----------------------------------------------*/
-static void LedTask(void *argument);
-static void ButtonTask(void *argument);
-/* Private functions ---------------------------------------------------------*/
+static void SendOneFrame(void);
 
 /**
  * @brief  Main program
@@ -41,43 +39,48 @@ static void ButtonTask(void *argument);
  */
 int main(void)
 {
-  /*!< At this stage the microcontroller clock setting is already configured,
-        this is done through SystemInit() function which is called from startup
-        files before to branch to application main.
-        To reconfigure the default setting of SystemInit() function,
-        refer to system_stm32f4xx.c file */
-
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 
-  configASSERT(xTaskCreate(LedTask,
-                           "led",
-                           configMINIMAL_STACK_SIZE,
-                           NULL,
-                           tskIDLE_PRIORITY + 1,
-                           NULL) == pdPASS);
+  My_Led_Init();
+  My_USART_Init();
+  My_ADC_DMA_Init();
 
-  vTaskStartScheduler();
+  My_Led_Close();
+  printf("\r\nrain capture init\r\n");
+  printf("sample_rate=%lu frame_points=%u\r\n",
+         (unsigned long)ADC_SAMPLE_RATE_HZ,
+         (unsigned int)My_ADC_DMA_GetFrameLength());
+
+  My_ADC_DMA_Start();
 
   while (1)
   {
+    if (My_ADC_DMA_FrameReady() != 0U)
+    {
+      My_Led_Open();
+      SendOneFrame();
+      My_ADC_DMA_ClearFrameReady();
+      My_Led_Close();
+      My_ADC_DMA_Start();
+    }
   }
 }
 
-static void LedTask(void *argument)
+static void SendOneFrame(void)
 {
-  (void)argument;
+  const uint16_t *frame = My_ADC_DMA_GetBuffer();
+  uint16_t index;
 
-  My_Led_Init();
+  printf("FRAME_BEGIN,%u\r\n", (unsigned int)My_ADC_DMA_GetFrameLength());
 
-  for (;;)
+  for (index = 0; index < My_ADC_DMA_GetFrameLength(); index++)
   {
-    My_Led_Open();
-    vTaskDelay(pdMS_TO_TICKS(300));
-
-    My_Led_Close();
-    vTaskDelay(pdMS_TO_TICKS(300));
+    printf("%u\r\n", (unsigned int)frame[index]);
   }
+
+  printf("FRAME_END\r\n");
 }
+
 #ifdef USE_FULL_ASSERT
 
 /**
@@ -92,7 +95,6 @@ void assert_failed(uint8_t *file, uint32_t line)
   (void)file;
   (void)line;
 
-  taskDISABLE_INTERRUPTS();
   while (1)
   {
   }

@@ -23,6 +23,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
 #include "main.h"
+#include "My_ADC_DMA.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -116,14 +117,10 @@ void DebugMon_Handler(void)
 /*  file (startup_stm32f4xx.s).                                               */
 /******************************************************************************/
 
-/**
-  * @brief  This function handles PPP interrupt request.
-  * @param  None
-  * @retval None
-  */
-/*void PPP_IRQHandler(void)
+void DMA2_Stream0_IRQHandler(void)
 {
-}*/
+  My_ADC_DMA_IRQHandler();
+}
 
 /**
   * @}
